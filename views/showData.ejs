@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="/styles/showData.css" />
+
+<!-- links to add features to table -->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.13.2/datatables.min.css"/>
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.13.2/datatables.min.js"></script>
+
+<div class="table-responsive container-fluid table_container">
+	<table id="csv-table" class="table table-bordered" style="color: white">
+		<thead>
+			<!-- Dynamic table headers -->
+
+			<%  headers.forEach(function (header) { %>
+             <th> <%= header %> </th>
+      <%  }) %>
+		</thead>
+		<tbody>
+			<!-- Table body to display the CSV data -->
+
+			<% csvData.forEach(function(row) { %>
+            <tr>
+              <% headers.forEach(function(header) { %>
+                <td><%= row[header] %></td>
+              <% }); %>
+            </tr>
+          <% }); %>
+		</tbody>
+	</table>
+</div>
+
+<div id="json-data" data="<%=JSON.stringify(csvData)%>"></div>
+
+<script src="/scripts/showData.js"></script>

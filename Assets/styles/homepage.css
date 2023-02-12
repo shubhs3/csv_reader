@@ -1,0 +1,21 @@
+
+.list-group-item{
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.input-group{
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
+.form-control{
+    background: rgba(0, 0, 0, 0.3);
+    color: white; 
+    
+}

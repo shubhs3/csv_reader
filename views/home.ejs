@@ -1,0 +1,45 @@
+<link rel="stylesheet" href="/styles/homepage.css" />
+<div class="container">
+	<form method="POST" action="file/upload" enctype="multipart/form-data">
+	<div class="input-group">
+		<input
+			type="file"
+			class="form-control"
+			name="csv_file"
+			id="csv_file"
+			aria-describedby="inputGroupFileAddon04"
+			aria-label="Upload"
+		/>
+		<button class="btn btn-success" type="submit" id="inputGroupFileAddon04">
+			Upload
+		</button>
+	</div>
+</form>
+	<div class="container">
+		<h3 class="mt-10">Uploaded Files</h3>
+		<ul class="list-group">
+			<%if( files.length == 0){%>
+			<div>no file uploaded</div>
+
+			<% }%> <% for( let file of files ) { %>
+			<li class="list-group-item">
+				<div><%= file %></div>
+				<div>
+					<button
+						class="btn btn-primary"
+						onclick="location.href='/file/open/<%= file %>'"
+					>
+						Open File
+					</button>
+					<button class="btn btn-danger" onclick="deleteFile(`<%= file%>`)">
+						Delete
+					</button>
+				</div>
+			</li>
+			<% } %>
+		</ul>
+	</div>
+</div>
+
+<script src="/scripts/home.js"></script>
+<script src="/scripts/showData.js"></script>
