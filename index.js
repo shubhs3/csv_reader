@@ -6,9 +6,6 @@ require("dotenv").config();
 
 const port = process.env.PORT || 3000;
 
-// const fileUpload = require("express-fileupload");
-// Use the fileUpload middleware
-// app.use(fileUpload());
 
 app.use(cors());
 app.use(express.static("./Assets"));
@@ -28,7 +25,6 @@ app.set("views", path.join(__dirname, "views"));
 // parses incoming requests with urlencoded payloads
 app.use(express.urlencoded({ extended: true }));
 
-app.use("/uploads", express.static(__dirname + "/uploads/csv_files"));
 // use express router
 app.use("/", require("./Routes"));
 
